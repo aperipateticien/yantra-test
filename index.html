@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yantra Technoventure | Industrial Spares &amp; Maintenance Solutions</title>
+<meta name="description" content="Yantra Technoventure, Satna (MP) — 20+ years serving Power, Cement, Mining, Steel, Railway &amp; Defence industries with plant spares, cooling tower solutions, mechanical seals, material conveying, valves and workshop fabrication.">
+<link rel="icon" href="data:,">
+<style>
+/* ============================================
+   YANTRA TECHNOVENTURE — DESIGN TOKENS
+   ============================================ */
+:root{
+  --yellow: #FFB800;
+  --yellow-dim: #cf9600;
+  --charcoal: #111820;
+  --bg-dark: #0B1015;
+  --bg-dark-2: #0f151b;
+  --panel-dark: #171f27;
+  --white: #FFFFFF;
+  --grey: #AEB5BD;
+  --grey-dim: #6b7581;
+  --line: #232c35;
+
+  --font-display: "Bahnschrift", "Arial Narrow", "Segoe UI Semibold", sans-serif;
+  --font-body: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --shadow-1: 0 10px 30px rgba(0,0,0,.35);
+  --shadow-2: 0 4px 14px rgba(0,0,0,.25);
+  --transition: 220ms cubic-bezier(.4,0,.2,1);
+  --header-h: 78px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; scroll-padding-top: var(--header-h); }
+body{
+  margin:0;
+  font-family:var(--font-body);
+  background:var(--white);
+  color:var(--charcoal);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; margin:0; padding:0; }
+button{ font-family:inherit; cursor:pointer; }
+.container{ width:100%; max-width:1240px; margin:0 auto; padding:0 24px; }
+
+h1,h2,h3,h4,h5{
+  font-family:var(--font-display);
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  margin:0 0 .5em;
+  line-height:1.15;
+}
+
+/* ============ HEADER ============ */
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:200;
+
+    background:linear-gradient(
+        to right,
+        #ffffff 0%,
+        #ffffff 12%,
+        rgba(255,255,255,.95) 13%,
+        rgba(190,195,198,.75) 16%,
+        rgba(105,112,117,.55) 20%,
+        rgba(40,47,53,.85) 25%,
+        rgba(11,16,21,.96) 30%,
+        rgba(11,16,21,.96) 100%
+    );
+
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+}
+
+.header-inner{
+  max-width:1320px; margin:0 auto; padding:0 24px;
+  height:var(--header-h);
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+}
+.img{
+    width:auto;
+    height:72px;     /* fixed logo height */
+    display:block;
+}
+.brand{ display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.brand-text{ display:flex; flex-direction:column; line-height:1.1; }
+.brand-text strong{ color:var(--yellow); font-family:var(--font-display); font-size:1.25rem; letter-spacing:.05em; }
+.brand-text em{ color:var(--darkgrey); font-style:normal; font-size:.62rem; letter-spacing:.22em; }
+
+.main-nav{ display:flex; align-items:center; gap:28px; }
+.main-nav a{
+  color:var(--white); font-size:.82rem; font-weight:600; letter-spacing:.05em;
+  text-transform:uppercase; position:relative; padding:6px 0; transition:color var(--transition);
+}
+.main-nav a::after{
+  content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--yellow);
+  transition:width var(--transition);
+}
+.main-nav a:hover{ color:var(--yellow); }
+.main-nav a:hover::after{ width:100%; }
+
+.header-actions{ display:flex; align-items:center; gap:16px; }
+.hamburger{
+  display:none; flex-direction:column; gap:5px; background:none; border:none; padding:8px;
+}
+.hamburger span{ width:24px; height:2px; background:var(--white); transition:var(--transition); }
+.hamburger.active span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2){ opacity:0; }
+.hamburger.active span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:13px 26px; font-size:.82rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  border-radius:var(--radius-sm); border:2px solid transparent; transition:all var(--transition);
+  cursor:pointer; white-space:nowrap;
+}
+.btn-primary{ background:var(--yellow); color:var(--charcoal); }
+.btn-primary:hover{ background:#ffc933; transform:translateY(-2px); box-shadow:var(--shadow-2); }
+.btn-outline{ border-color:var(--white); color:var(--white); background:transparent; }
+.btn-outline:hover{ background:var(--white); color:var(--charcoal); transform:translateY(-2px); }
+.btn-sm{ padding:10px 18px; font-size:.72rem; }
+.btn-block{ width:100%; }
+
+/* ============ REVEAL ANIMATION ============ */
+.reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  html{ scroll-behavior:auto; }
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+    position:relative;
+    background:var(--bg-dark);
+    color:var(--white);
+    padding-top:56px;
+    overflow:hidden;
+    min-height:650px;
+}
+
+
+/* =========================================================
+   HERO BACKGROUND IMAGE
+   ========================================================= */
+
+.hero-rig{
+    position:absolute;
+    inset:0;
+    z-index:0;
+    opacity:1;
+    overflow:hidden;
+}
+
+.hero-rig img,
+.hero-rig-img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center center;
+}
+
+
+/* Dark cinematic overlay */
+
+.hero-rig::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(11,16,21,.94) 0%,
+            rgba(11,16,21,.82) 22%,
+            rgba(11,16,21,.58) 45%,
+            rgba(11,16,21,.35) 68%,
+            rgba(11,16,21,.58) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(11,16,21,.25) 0%,
+            rgba(11,16,21,.45) 55%,
+            var(--bg-dark) 100%
+        );
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   HERO INNER CONTENT
+   ========================================================= */
+
+.hero-inner{
+    position:relative;
+    z-index:1;
+
+    max-width:1240px;
+    margin:0 auto;
+
+    padding:64px 24px 48px;
+
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:48px;
+
+    align-items:start;
+}
+
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.eyebrow{
+    color:var(--yellow);
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:.78rem;
+    margin-bottom:14px;
+}
+
+.hero-copy{
+    max-width:720px;
+}
+
+.hero-copy h1{
+    font-size:clamp(2.1rem,4.6vw,3.5rem);
+    line-height:1.08;
+    margin-bottom:18px;
+    font-weight:800;
+}
+
+.hero-copy h1 .accent{
+    color:var(--yellow);
+}
+
+.hero-sub{
+    color:var(--grey);
+    font-size:1.08rem;
+    max-width:520px;
+    margin-bottom:30px;
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-cta{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.hero-cta .btn-outline{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+/* =========================================================
+   HERO INFORMATION PANEL
+   ========================================================= */
+
+.hero-panel{
+    background:rgba(23,31,39,.86);
+
+    border:1px solid rgba(255,184,0,.28);
+    border-radius:var(--radius-md);
+
+    padding:26px;
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.28);
+
+    max-width:430px;
+    width:100%;
+    margin-left:auto;
+}
+
+.panel-row{
+    display:flex;
+    align-items:baseline;
+    gap:6px;
+    flex-wrap:wrap;
+    padding:10px 0;
+}
+
+.panel-row--stack{
+    flex-direction:column;
+    gap:4px;
+}
+
+.panel-num{
+    font-family:var(--font-display);
+    font-size:2rem;
+    color:var(--yellow);
+    font-weight:700;
+}
+
+.panel-plus{
+    font-family:var(--font-display);
+    font-size:1.3rem;
+    color:var(--yellow);
+}
+
+.panel-label{
+    color:var(--grey);
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+}
+
+.panel-label--head{
+    color:var(--yellow);
+    font-weight:700;
+}
+
+.panel-value{
+    font-size:.92rem;
+    color:var(--white);
+}
+
+.hero-panel hr{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:2px 0;
+}
+
+
+/* =========================================================
+   HERO STRIP BAR
+   ========================================================= */
+
+.hero-stripbar{
+    position:relative;
+    z-index:1;
+
+    background:rgba(23,31,39,.94);
+
+    border-top:1px solid var(--line);
+    border-bottom:2px solid var(--yellow);
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+}
+
+.strip-item{
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    padding:20px 24px;
+
+    border-right:1px solid var(--line);
+}
+
+.strip-item:last-child{
+    border-right:none;
+}
+
+.strip-item strong{
+    display:block;
+
+    color:var(--white);
+
+    font-family:var(--font-display);
+    font-size:1.15rem;
+    font-weight:700;
+}
+
+.strip-item span{
+    color:var(--grey);
+
+    font-size:.76rem;
+
+    text-transform:uppercase;
+    letter-spacing:.05em;
+}
+
+
+/* =========================================================
+   OPTIONAL HERO IMAGE DARKENING
+   ========================================================= */
+
+/* Gives extra darkness behind left-side text */
+
+.hero-copy::before{
+    content:"";
+    position:absolute;
+
+    left:-120px;
+    top:-100px;
+
+    width:650px;
+    height:500px;
+
+    background:radial-gradient(
+        ellipse,
+        rgba(11,16,21,.42) 0%,
+        rgba(11,16,21,.18) 45%,
+        transparent 72%
+    );
+
+    z-index:-1;
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width:1024px){
+
+    .hero{
+        min-height:650px;
+        padding-top:48px;
+    }
+
+    .hero-inner{
+        grid-template-columns:1.25fr .9fr;
+        gap:30px;
+
+        padding:55px 28px 42px;
+    }
+
+    .hero-copy h1{
+        font-size:clamp(2rem,5vw,3rem);
+    }
+
+    .hero-sub{
+        font-size:1rem;
+    }
+
+    .hero-panel{
+        padding:22px;
+    }
+
+    .panel-num{
+        font-size:1.75rem;
+    }
+
+    .strip-item{
+        padding:18px 16px;
+        gap:9px;
+    }
+
+    .strip-item strong{
+        font-size:1rem;
+    }
+
+    .strip-item span{
+        font-size:.68rem;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width:768px){
+
+    .hero{
+        min-height:auto;
+        padding-top:0;
+    }
+
+
+    /* Background positioning for phone */
+
+    .hero-rig{
+        min-height:650px;
+    }
+
+    .hero-rig img,
+    .hero-rig-img{
+        object-position:58% center;
+    }
+
+
+    /* Stronger mobile overlay */
+
+    .hero-rig::after{
+        background:
+            linear-gradient(
+                180deg,
+                rgba(11,16,21,.50) 0%,
+                rgba(11,16,21,.68) 38%,
+                rgba(11,16,21,.88) 70%,
+                var(--bg-dark) 100%
+            );
+    }
+
+
+    .hero-inner{
+        grid-template-columns:1fr;
+        gap:28px;
+
+        padding:
+            85px
+            20px
+            40px;
+    }
+
+
+    .hero-copy{
+        max-width:100%;
+    }
+
+
+    .eyebrow{
+        font-size:.7rem;
+        letter-spacing:.11em;
+        margin-bottom:12px;
+    }
+
+
+    .hero-copy h1{
+        font-size:clamp(2rem,9vw,2.7rem);
+        line-height:1.08;
+        margin-bottom:16px;
+    }
+
+
+    .hero-sub{
+        max-width:100%;
+        font-size:.96rem;
+        line-height:1.6;
+        margin-bottom:24px;
+    }
+
+
+    /* Buttons */
+
+    .hero-cta{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        width:100%;
+    }
+
+    .hero-cta .btn,
+    .hero-cta .btn-outline{
+        width:100%;
+        min-height:48px;
+        justify-content:center;
+    }
+
+
+    /* Panel */
+
+    .hero-panel{
+        max-width:100%;
+        margin:0;
+
+        padding:18px;
+
+        background:rgba(23,31,39,.90);
+    }
+
+    .panel-row{
+        padding:8px 0;
+    }
+
+    .panel-num{
+        font-size:1.65rem;
+    }
+
+    .panel-label{
+        font-size:.7rem;
+    }
+
+    .panel-value{
+        font-size:.86rem;
+    }
+
+
+    /* Strip */
+
+    .hero-stripbar{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .strip-item{
+        padding:16px 14px;
+        min-height:75px;
+    }
+
+    .strip-item:nth-child(2){
+        border-right:none;
+    }
+
+    .strip-item:nth-child(-n+2){
+        border-bottom:1px solid var(--line);
+    }
+
+    .strip-item strong{
+        font-size:.95rem;
+    }
+
+    .strip-item span{
+        font-size:.62rem;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width:480px){
+
+    .hero-rig{
+        min-height:720px;
+    }
+
+    .hero-rig img,
+    .hero-rig-img{
+        object-position:60% center;
+    }
+
+    .hero-inner{
+        padding:
+            75px
+            16px
+            34px;
+    }
+
+    .hero-copy h1{
+        font-size:2rem;
+    }
+
+    .hero-sub{
+        font-size:.9rem;
+    }
+
+    .hero-panel{
+        padding:16px;
+        border-radius:10px;
+    }
+
+    .panel-num{
+        font-size:1.5rem;
+    }
+
+    .panel-value{
+        font-size:.82rem;
+    }
+
+    .strip-item{
+        padding:14px 10px;
+        gap:7px;
+    }
+
+    .strip-item strong{
+        font-size:.85rem;
+    }
+
+    .strip-item span{
+        font-size:.58rem;
+    }
+}
+
+/* ============ SECTION GENERIC ============ */
+.section{ padding:90px 0; }
+.section-head{ max-width:720px; margin-bottom:48px; }
+.section-eyebrow{ color:var(--yellow-dim); font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:.78rem; margin-bottom:10px; }
+.section-eyebrow--yellow{ color:var(--yellow); }
+.section-title{ font-size:clamp(1.8rem, 3.4vw, 2.6rem); color:var(--charcoal); }
+.section-title--light{ color:var(--white); }
+.lead{ color:var(--grey-dim); font-size:1.02rem; max-width:640px; }
+.lead--light{ color:var(--grey); }
+.accent{ color:var(--yellow-dim); }
+
+/* dark sections share this background */
+.ct-section, .industries, .esp, .contact{
+  background:var(--bg-dark); color:var(--white);
+}
+
+/* ============ ABOUT ============ */
+.about-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:56px; align-items:center; }
+.about-tags{ display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
+.about-tags span{
+  border:1px solid var(--line); color:var(--charcoal); padding:8px 16px; font-size:.78rem;
+  text-transform:uppercase; letter-spacing:.06em; border-radius:var(--radius-sm); background:#f6f7f8;
+}
+.about-figure{ display:flex; justify-content:center; }
+.about-figure img{ width:100%; max-width:280px; height: 100%; }
+
+/* ============ SOLUTIONS GRID ============ */
+.solutions{ background:#f7f8f9; }
+.solutions-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;
+}
+.sol-card{
+  background:var(--white); border:1px solid #e6e8eb; border-radius:var(--radius-md);
+  padding:28px 24px; transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  position:relative;
+}
+.sol-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-1); border-color:var(--yellow); }
+.sol-icon{ margin-bottom:16px; }
+.sol-card h3{ font-size:1.02rem; margin-bottom:10px; color:var(--charcoal); }
+.sol-card p{ color:var(--grey-dim); font-size:.9rem; margin-bottom:18px; }
+.card-link{
+  background:none; border:none; color:var(--yellow-dim); font-weight:700; font-size:.8rem;
+  text-transform:uppercase; letter-spacing:.05em; padding:0;
+}
+.card-link:hover{ text-decoration:underline; }
+
+.sol-card--featured{
+  grid-column:span 2; grid-row:span 2;
+  background:
+    linear-gradient(rgba(11,16,21,.82), rgba(11,16,21,.82)),
+    url("images/cooling.jpeg");
+
+  background-size:contain;
+  background-position:center;
+  background-repeat:no-repeat;
+  color:var(--white); border:2px solid var(--yellow);
+  display:flex; flex-direction:column; justify-content:center; padding:36px;
+}
+.sol-card--featured h3{ color:var(--white); font-size:1.5rem; }
+.sol-card--featured p{ color:var(--grey); font-size:1rem; }
+.badge{
+  position:absolute; top:20px; right:20px; background:var(--yellow); color:var(--charcoal);
+  font-size:.66rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
+  padding:5px 10px; border-radius:2px;
+}
+.sol-card--featured .card-link{ color:var(--yellow); font-size:.9rem; }
+
+/* ============ COOLING TOWER SECTION ============ */
+.ct-section{ padding-top:90px; padding-bottom:0; }
+.section-head--light .lead{ color:var(--grey); }
+.ct-types{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:40px 0 24px; }
+.ct-type{
+  border:1px solid var(--line); border-radius:var(--radius-md); padding:26px;
+  display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center;
+  background:var(--panel-dark);
+}
+.ct-type h4{ color:var(--white); font-size:.92rem; margin:0; }
+.ct-note{ color:var(--grey); font-size:.9rem; font-style:italic; margin-bottom:40px; }
+
+.ct-services{
+  border-top:1px solid var(--line); padding:36px 0 60px;
+}
+.ct-services h3{ color:var(--white); margin-bottom:20px; }
+.chip-list{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:26px; }
+.chip-list li{
+  border:1px solid var(--yellow); color:var(--yellow); font-size:.8rem; font-weight:600;
+  padding:9px 16px; border-radius:20px; text-transform:uppercase; letter-spacing:.04em;
+}
+.chip-list--wrap li{ border-color:var(--line); color:var(--charcoal); background:#f6f7f8; border-radius:4px; }
+
+.ct-conversion{ background:var(--panel-dark); border-top:1px solid var(--line); padding:60px 0; }
+.ct-conversion-title{ text-align:center; color:var(--white); margin-bottom:36px; font-size:1.4rem; }
+.conversion-flow{ display:flex; align-items:center; justify-content:center; gap:32px; flex-wrap:wrap; }
+.conversion-item{ display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; }
+.conversion-item span{ color:var(--grey); font-size:.82rem; text-transform:uppercase; letter-spacing:.04em; font-weight:600; }
+.conversion-arrow{ display:flex; flex-direction:column; align-items:center; gap:6px; }
+.conversion-arrow span{ color:var(--yellow); font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; font-weight:700; }
+
+/* ============ INDUSTRIES ============ */
+.industry-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:16px; }
+.industry-card{
+  border:1px solid var(--line); border-radius:var(--radius-md); padding:28px 16px;
+  text-align:center; background:var(--panel-dark); transition:transform var(--transition), border-color var(--transition);
+}
+.industry-card:hover{ transform:translateY(-4px); border-color:var(--yellow); }
+.industry-icon{ margin-bottom:12px; display:flex; justify-content:center; }
+.industry-card h4{ color:var(--white); font-size:.86rem; margin:0; }
+
+/* ============ BRANDS ============ */
+.brand-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+.brand-card{
+  border:1px solid #e6e8eb; border-radius:var(--radius-md); padding:26px 18px; text-align:center;
+  transition:box-shadow var(--transition), border-color var(--transition);
+}
+.brand-card:hover{ box-shadow:var(--shadow-2); border-color:var(--yellow); }
+.brand-card h4{ font-size:.92rem; color:var(--charcoal); margin-bottom:8px; }
+.brand-card p{ color:var(--grey-dim); font-size:.82rem; margin:0; }
+
+/* ============ PRODUCTS ============ */
+.product-block{ border-top:1px solid #e6e8eb; padding:34px 0; }
+.product-block:first-of-type{ border-top:none; }
+.product-block h3{ font-size:1.15rem; color:var(--charcoal); }
+.product-block .src{ color:var(--grey-dim); font-size:.72rem; text-transform:none; font-weight:400; letter-spacing:0; }
+.product-block p{ color:var(--grey-dim); max-width:760px; margin-bottom:16px; }
+.two-col{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+.two-col h5{ font-size:.85rem; color:var(--charcoal); margin-bottom:10px; }
+
+/* ============ VALVES ============ */
+.valves{ background:var(--bg-dark); }
+.valve-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.valve-card{
+  border:1px solid var(--line); background:var(--panel-dark); border-radius:var(--radius-md);
+  padding:24px; border-left:3px solid var(--yellow);
+}
+.valve-card h4{ color:var(--white); font-size:.98rem; margin-bottom:8px; }
+.valve-cert{ color:var(--yellow); font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin:0 0 6px; }
+.valve-std{ color:var(--grey); font-size:.82rem; margin:0; }
+
+/* ============ MATERIAL HANDLING ============ */
+.mh-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.mh-card{ border:1px solid #e6e8eb; border-radius:var(--radius-md); padding:26px; }
+.mh-card h4{ font-size:.98rem; color:var(--charcoal); margin-bottom:8px; }
+.mh-card p{ color:var(--grey-dim); font-size:.88rem; margin:0; }
+.mh-card--wide{ grid-column:span 3; background:#f7f8f9; }
+
+/* ============ HEAT EXCHANGER ============ */
+.two-col-section{ display:grid; grid-template-columns:1.2fr 1fr; gap:56px; align-items:center; }
+.he-cols{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:24px 0 28px; }
+.he-cols h5{ font-size:.88rem; color:var(--charcoal); margin-bottom:8px; }
+.he-cols p{ color:var(--grey-dim); font-size:.86rem; margin:0; }
+.he-graphic{ background:var(--charcoal); border-radius:var(--radius-md); padding:30px; }
+
+/* ============ ESP ============ */
+.esp{ text-align:left; }
+
+/* ============ WORKSHOP ============ */
+.workshop-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.workshop-card{ border:1px solid #e6e8eb; border-radius:var(--radius-md); padding:28px; text-align:center; }
+.workshop-card h4{ font-size:.98rem; color:var(--charcoal); }
+.workshop-card p{ color:var(--grey-dim); font-size:.88rem; }
+
+/* ============ TERRITORY ============ */
+.territory{ background:#f7f8f9; }
+.territory-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.territory-card{ background:var(--white); border:1px solid #e6e8eb; border-radius:var(--radius-md); padding:28px; }
+.territory-card h4{ color:var(--charcoal); border-bottom:2px solid var(--yellow); padding-bottom:10px; margin-bottom:16px; }
+.loc-list{ display:flex; flex-wrap:wrap; gap:8px 14px; }
+.loc-list li{ color:var(--grey-dim); font-size:.88rem; position:relative; padding-left:14px; }
+.loc-list li::before{ content:"—"; position:absolute; left:0; color:var(--yellow-dim); }
+
+/* ============ CTA STRIP ============ */
+.cta-strip{ background:var(--yellow); }
+.cta-strip-inner{ display:flex; align-items:center; justify-content:space-between; gap:24px; padding:40px 24px; flex-wrap:wrap; }
+.cta-strip h3{ color:var(--charcoal); margin-bottom:4px; font-size:1.3rem; }
+.cta-strip p{ color:#3a3120; margin:0; max-width:480px; }
+.cta-strip-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+.cta-strip .btn-outline{ border-color:var(--charcoal); color:var(--charcoal); }
+.cta-strip .btn-outline:hover{ background:var(--charcoal); color:var(--white); }
+.cta-strip .btn-primary{ background:var(--charcoal); color:var(--white); }
+.cta-strip .btn-primary:hover{ background:#20272e; }
+
+/* ============ CONTACT ============ */
+.contact-grid{ display:grid; grid-template-columns:1fr 1.3fr; gap:60px; }
+.contact-details p{ color:var(--grey); margin:0 0 12px; }
+.contact-details a{ color:var(--yellow); }
+.contact-quick-btns{ display:flex; gap:14px; margin-top:20px; flex-wrap:wrap; }
+
+.quote-form{
+  background:var(--panel-dark); border:1px solid var(--line); border-radius:var(--radius-md); padding:32px;
+}
+.quote-form h3{ color:var(--white); margin-bottom:20px; }
+.form-row{ margin-bottom:16px; display:flex; flex-direction:column; gap:6px; }
+.form-row label{ color:var(--grey); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; }
+.form-row input, .form-row select, .form-row textarea{
+  background:var(--bg-dark); border:1px solid var(--line); color:var(--white); padding:12px 14px;
+  border-radius:var(--radius-sm); font-family:inherit; font-size:.92rem; resize:vertical;
+}
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus{
+  outline:none; border-color:var(--yellow);
+}
+.form-row.invalid input, .form-row.invalid textarea{ border-color:#e06060; }
+.err{ color:#ff8a8a; font-size:.76rem; min-height:1em; }
+.form-success{ color:var(--yellow); font-size:.85rem; margin-top:14px; text-align:center; }
+
+/* ============ FOOTER ============ */
+.site-footer{ background:#0a0e13; color:var(--grey); padding-top:60px; }
+.footer-grid{ display:grid; grid-template-columns:1.6fr repeat(5,1fr); gap:30px; padding-bottom:40px; border-bottom:1px solid var(--line); }
+.footer-brand p{ font-size:.85rem; margin-top:14px; }
+.footer-col h5{ color:var(--white); font-size:.8rem; letter-spacing:.08em; margin-bottom:16px; }
+.footer-col ul li{ margin-bottom:10px; }
+.footer-col a{ color:var(--grey); font-size:.85rem; transition:color var(--transition); }
+.footer-col a:hover{ color:var(--yellow); }
+.footer-col p{ font-size:.85rem; margin:0 0 10px; }
+.footer-bottom{ text-align:center; padding:20px 0; font-size:.78rem; color:var(--grey-dim); }
+
+/* ============ MODAL ============ */
+.modal-overlay{
+  position:fixed; inset:0; background:rgba(11,16,21,.8); z-index:500;
+  display:flex; align-items:center; justify-content:center; padding:24px;
+  opacity:0; pointer-events:none; transition:opacity var(--transition);
+}
+.modal-overlay.active{ opacity:1; pointer-events:auto; }
+.modal-box{
+  background:var(--white); border-radius:var(--radius-md); padding:36px; max-width:520px; width:100%;
+  position:relative; transform:translateY(16px); transition:transform var(--transition);
+  max-height:80vh; overflow-y:auto;
+}
+.modal-overlay.active .modal-box{ transform:translateY(0); }
+.modal-box h3{ color:var(--charcoal); margin-bottom:14px; }
+.modal-box p{ color:var(--grey-dim); margin-bottom:12px; font-size:.92rem; }
+.modal-close{
+  position:absolute; top:14px; right:16px; background:none; border:none; font-size:1.6rem; line-height:1;
+  color:var(--grey-dim);
+}
+.modal-close:hover{ color:var(--charcoal); }
+
+/* ============ FOCUS STATES ============ */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+  outline:2px solid var(--yellow); outline-offset:2px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width:1024px){
+  .main-nav{ gap:18px; }
+  .main-nav a{ font-size:.76rem; }
+  .hero-inner{ grid-template-columns:1fr; }
+  .hero-panel{ order:-1; }
+  .solutions-grid{ grid-template-columns:repeat(2,1fr); }
+  .sol-card--featured{ grid-column:span 2; grid-row:span 1; }
+  .industry-grid{ grid-template-columns:repeat(3,1fr); }
+  .brand-grid{ grid-template-columns:repeat(3,1fr); }
+  .about-grid, .two-col-section, .contact-grid{ grid-template-columns:1fr; }
+  .about-figure{ order:-1; }
+  .valve-grid, .mh-grid, .workshop-grid, .territory-grid{ grid-template-columns:repeat(2,1fr); }
+  .mh-card--wide{ grid-column:span 2; }
+  .footer-grid{ grid-template-columns:repeat(3,1fr); }
+}
+
+@media (max-width:768px){
+  :root{ --header-h:64px; }
+  .main-nav{
+    position:fixed; top:var(--header-h); left:0; right:0; background:var(--bg-dark);
+    flex-direction:column; align-items:flex-start; gap:0; padding:8px 24px 20px;
+    border-bottom:1px solid var(--line);
+    transform:translateY(-8px); opacity:0; pointer-events:none; transition:all var(--transition);
+  }
+  .main-nav.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
+  .main-nav a{ width:100%; padding:12px 0; border-bottom:1px solid var(--line); }
+  .hamburger{ display:flex; }
+  .header-actions .btn-sm{ display:none; }
+
+  .hero-stripbar{ grid-template-columns:repeat(2,1fr); }
+  .strip-item{ border-bottom:1px solid var(--line); }
+  .strip-item:nth-child(2n){ border-right:none; }
+
+  .solutions-grid{ grid-template-columns:1fr; }
+  .sol-card--featured{ grid-column:span 1; }
+  .industry-grid{ grid-template-columns:repeat(2,1fr); }
+  .brand-grid{ grid-template-columns:repeat(2,1fr); }
+  .valve-grid, .mh-grid, .workshop-grid, .territory-grid, .two-col{ grid-template-columns:1fr; }
+  .mh-card--wide{ grid-column:span 1; }
+  .ct-types{ grid-template-columns:1fr; }
+  .conversion-flow{ flex-direction:column; }
+  .conversion-arrow{ transform:rotate(90deg); }
+  .footer-grid{ grid-template-columns:repeat(2,1fr); }
+  .cta-strip-inner{ flex-direction:column; align-items:flex-start; }
+  .btn{ width:100%; }
+  .hero-cta{ flex-direction:column; }
+  .cta-strip-actions{ width:100%; flex-direction:column; }
+  section.section{ padding:64px 0; }
+}
+
+@media (max-width:480px){
+  .footer-grid{ grid-template-columns:1fr; }
+  .hero-stripbar{ grid-template-columns:1fr; }
+  .strip-item{ border-right:none; }
+  .header-inner{ padding:0 16px; }
+  .container{ padding:0 16px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <!-- <svg viewBox="0 0 48 48" width="40" height="40"><g fill="none" stroke="var(--yellow)" stroke-width="3"><circle cx="24" cy="24" r="16"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6M9.8 9.8l4.2 4.2M33.9 33.9l4.2 4.2M9.8 38.2l4.2-4.2M33.9 14.1l4.2-4.2"/></g></svg> -->
+        <img src="images/yantra-logo.jpeg" alt="ytr" class="img" onclick="window.location.href='index.html';">
+      </span>
+      <span class="brand-text">
+        <!-- <strong>YANTRA</strong> -->
+        <em>TECHNOVENTURE</em>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#products">Products</a>
+      <a href="#industries">Industries</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#cooling-tower">Cooling Tower</a>
+      <a href="#resources">Resources</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#contact" class="btn btn-primary btn-sm">Enquire Now</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-rig" aria-hidden="true">
+  <img 
+        src="images/hero.jpeg"
+        alt=""
+        class="hero-rig-img"
+    >
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Satna, Madhya Pradesh &middot; Since &gt;20 Years</p>
+      <h1>INDUSTRIAL SPARES<br><span class="accent">&amp; MAINTENANCE SOLUTIONS</span></h1>
+      <p class="hero-sub">Reliable engineering solutions for Power, Cement, Mining, Steel, Railway &amp; Defence industries.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" data-scroll="#solutions">Explore Solutions</button>
+        <a class="btn btn-outline" href="tel:+917440408448">Talk to an Engineer</a>
+      </div>
+    </div>
+
+    <aside class="hero-panel reveal" aria-label="Company highlights">
+      <div class="panel-row">
+        <span class="panel-num" data-counter="20">0</span><span class="panel-plus">+</span>
+        <span class="panel-label">Years of Experience</span>
+      </div>
+      <hr>
+      <div class="panel-row panel-row--stack">
+        <span class="panel-label panel-label--head">Major Industries</span>
+        <span class="panel-value">Power / Cement / Mining / Steel / Railway / Defence</span>
+      </div>
+      <hr>
+      <div class="panel-row">
+        <span class="panel-num" data-counter="12">0</span><span class="panel-plus">+</span>
+        <span class="panel-label">Solution Categories</span>
+      </div>
+      <hr>
+      <div class="panel-row panel-row--stack">
+        <span class="panel-label panel-label--head">Featured</span>
+        <span class="panel-value">Cooling Tower Spares &amp; Services</span>
+      </div>
+    </aside>
+  </div>
+
+  <div class="hero-stripbar reveal">
+    <div class="strip-item">
+      <svg viewBox="0 0 24 24" width="26" height="26"><path fill="var(--yellow)" d="M12 2l2.4 6.9L21 9l-5 4.6L17.4 21 12 17.3 6.6 21 8 13.6 3 9l6.6-.1z"/></svg>
+      <div><strong data-counter="20">0</strong><span>+ Years Experience</span></div>
+    </div>
+    <div class="strip-item">
+      <svg viewBox="0 0 24 24" width="26" height="26"><path fill="var(--yellow)" d="M3 21V9l6-4 6 4v2l6-4v14h-6v-6H9v6z"/></svg>
+      <div><strong data-counter="6">0</strong><span>Major Industries</span></div>
+    </div>
+    <div class="strip-item">
+      <svg viewBox="0 0 24 24" width="26" height="26"><path fill="var(--yellow)" d="M12 2 2 7l10 5 10-5zm0 7L2 4v10l10 5 10-5V4z"/></svg>
+      <div><strong data-counter="12">0</strong><span>+ Solution Categories</span></div>
+    </div>
+    <div class="strip-item">
+      <svg viewBox="0 0 24 24" width="26" height="26"><path fill="var(--yellow)" d="M12 2c-4 0-7 3.1-7 7 0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+      <div><strong>MP · UP · Jharkhand</strong><span>Service Network</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section about" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <p class="section-eyebrow">About Yantra</p>
+      <h2 class="section-title">A joint venture built on&nbsp;<span class="accent">20+ years</span>&nbsp;in the field</h2>
+      <p class="lead">Yantra Technoventure is a joint venture with its office at Satna. With more than 20 years of experience in the related field, the people of Yantra have worked with major industries including Power, Cement, Mining, Steel, Railway and Defence.</p>
+      <div class="about-tags">
+        <span>Power</span><span>Cement</span><span>Mining</span><span>Steel</span><span>Railway</span><span>Defence</span>
+      </div>
+    </div>
+    <div class="about-figure reveal" aria-hidden="true">
+      <!-- <svg viewBox="0 0 300 300">
+        <circle cx="150" cy="150" r="140" fill="none" stroke="#1c2530" stroke-width="1"/>
+        <circle cx="150" cy="150" r="105" fill="none" stroke="#1c2530" stroke-width="1"/>
+        <g fill="none" stroke="var(--yellow)" stroke-width="3">
+          <circle cx="150" cy="150" r="60"/>
+          <path d="M150 90v-16M150 210v16M90 150h-16M210 150h16M107 107l-11-11M193 193l11 11M107 193l-11 11M193 107l11-11"/>
+        </g>
+        <text x="150" y="160" text-anchor="middle" font-size="34" font-weight="800" fill="#fff">20+</text>
+      </svg> -->
+      <img src="images/yantra.jpeg" alt="ytr" class="img">
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTIONS ============ -->
+<section class="section solutions" id="solutions">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-title">Our Solutions</h2>
+      <p class="lead">Twelve categories of industrial spares, systems and services, engineered for plant reliability.</p>
+    </div>
+
+    <div class="solutions-grid">
+
+      <article class="sol-card sol-card--featured reveal" id="card-cooling-tower">
+        <span class="badge">Featured Solution</span>
+        <div class="sol-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="44" height="44"><path fill="none" stroke="var(--yellow)" stroke-width="2.5" d="M14 38c-3-14-3-20 4-24 4-2.4 12-2.4 16 0 7 4 7 10 4 24z"/><line x1="12" y1="38" x2="36" y2="38" stroke="var(--yellow)" stroke-width="2.5"/></svg>
+        </div>
+        <h3>Cooling Tower, Spares &amp; Services</h3>
+        <p>Design, supply, spares, maintenance, renovation and modification of FRP and wooden cooling towers, with our associate Canara Engineers Pvt. Ltd.</p>
+        <button class="card-link" data-scroll="#cooling-tower">View Details →</button>
+      </article>
+
+      <article class="sol-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path fill="var(--yellow)" d="M19.4 13a7.4 7.4 0 000-2l2.1-1.6-2-3.5-2.5 1a7.6 7.6 0 00-1.7-1L15 3h-4l-.3 2.9a7.6 7.6 0 00-1.7 1l-2.5-1-2 3.5L6.6 11a7.4 7.4 0 000 2l-2.1 1.6 2 3.5 2.5-1a7.6 7.6 0 001.7 1L11 21h4l.3-2.9a7.6 7.6 0 001.7-1l2.5 1 2-3.5zM13 15.5A3.5 3.5 0 1113 8.5a3.5 3.5 0 010 7z"/></svg></div>
+        <h3>Spares of Plant Equipments</h3>
+        <p>General-purpose plant equipment spares supplied and serviced across our client industries.</p>
+        <button class="card-link" data-modal="modal-plant-spares">View Details →</button>
+      </article>
+
+      <article class="sol-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><circle cx="12" cy="12" r="9" fill="none" stroke="var(--yellow)" stroke-width="2"/><circle cx="12" cy="12" r="3.4" fill="var(--yellow)"/></svg></div>
+        <h3>Mechanical Seals</h3>
+        <p>Wide range of mechanical shaft seals via our associate M.N. Industries, for pumps across industries.</p>
+        <button class="card-link" data-modal="modal-seals">View Details →</button>
+      </article>
+
+      <article class="sol-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path fill="var(--yellow)" d="M4 4h16v4H4zM4 10h16v4H4zM4 16h16v4H4z"/></svg></div>
+        <h3>Spares for Ash Handling</h3>
+        <p>Ash handling system spares including flanges, augers, liners and related fabricated components.</p>
+        <button class="card-link" data-modal="modal-ash">View Details →</button>
+      </article>
+
+      <article class="sol-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path fill="var(--yellow)" d="M2 12h4l3-7 4 14 3-7h6" fill="none" stroke="var(--yellow)" stroke-width="2"/></svg></div>
+        <h3>Material Conveying Solutions</h3>
+        <p>Material conveying systems and components, including bucket elevator chains, belts and buckets.</p>
+        <button class="card-link" data-modal="modal-conveying">View Details →</button>
+      </article>
+
+      <article class="sol-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path fill="var(--yellow)" d="M12 2 3 7v10l9 5 9-5V7z"/></svg></div>
+        <h3>Hi-Chrome &amp; Mn-Alloy Casting</h3>
+        <p>High-chrome and manganese-alloy cast components for wear-intensive plant applications.</p>
+        <button class="card-link" data-modal="modal-casting">View Details →</button>
+      </article>
+
+      <article class="sol-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path fill="var(--yellow)" d="M3 10h18v2H3zM3 6h18v2H3zM3 14h18v2H3zM3 18h18v2H3z"/></svg></div>
+        <h3>Spares for Bulk Material Handling</h3>
+        <p>Rollers, idlers, pulleys and related spares for bulk material handling conveyor systems.</p>
+        <button class="card-link" data-modal="modal-bulk">View Details →</button>
+      </article>
+
+      <article class="sol-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><circle cx="12" cy="12" r="8" fill="none" stroke="var(--yellow)" stroke-width="2"/><circle cx="12" cy="12" r="2.4" fill="var(--yellow)"/></svg></div>
+        <h3>Bearing</h3>
+        <p>Prestigious NBC Bearing range, India's first bearing manufacturer, supplied across industries.</p>
+        <button class="card-link" data-modal="modal-bearing">View Details →</button>
+      </article>
+
+      <article class="sol-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path fill="var(--yellow)" d="M3 3h4v18H3zM10 3h4v18h-4zM17 3h4v18h-4z"/></svg></div>
+        <h3>Heat Exchanger</h3>
+        <p>Type selection and reconditioning of shell &amp; tube, air-cooled and other heat exchangers.</p>
+        <button class="card-link" data-scroll="#heat-exchanger">View Details →</button>
+      </article>
+
+      <article class="sol-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><rect x="4" y="4" width="16" height="16" fill="none" stroke="var(--yellow)" stroke-width="2"/><path d="M4 9h16M4 14h16M9 4v16M14 4v16" stroke="var(--yellow)" stroke-width="1"/></svg></div>
+        <h3>Air Pollution Control (ESP &amp; Bag House)</h3>
+        <p>ESP &amp; Bag House solutions for electrostatic precipitators and bag-filter systems.</p>
+        <button class="card-link" data-scroll="#esp-baghouse">View Details →</button>
+      </article>
+
+      <article class="sol-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path fill="var(--yellow)" d="M2 2l3 3-6 6-3-3zm4.5 4.5L20 20l2-2L8.5 4.5z"/></svg></div>
+        <h3>Drawing Based Fabrication &amp; Machining Jobs</h3>
+        <p>Custom fabrication and precision machining executed to customer drawings and specification.</p>
+        <button class="card-link" data-scroll="#workshop">View Details →</button>
+      </article>
+
+      <article class="sol-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path fill="var(--yellow)" d="M12 2C9 6 6 10 6 14a6 6 0 0012 0c0-4-3-8-6-12z"/></svg></div>
+        <h3>Water &amp; Fire Pumps</h3>
+        <p>Industrial water and fire pump systems for process and safety applications.</p>
+        <button class="card-link" data-modal="modal-pumps">View Details →</button>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ COOLING TOWER FEATURE ============ -->
+<section class="section ct-section" id="cooling-tower">
+  <div class="container">
+    <div class="section-head section-head--light reveal">
+      <p class="section-eyebrow section-eyebrow--yellow">Featured</p>
+      <h2 class="section-title section-title--light">Cooling Tower<br>Solutions &amp; Services</h2>
+      <p class="lead lead--light">Design &middot; Supply &middot; Spares &middot; Maintenance &middot; Renovation &middot; Modification</p>
+      <p class="lead lead--light">We are proudly associated with <strong>Canara Engineers Pvt. Ltd.</strong>, established in 1991 with head office and manufacturing unit at Mumbai, involved in design, manufacture and supply of high-efficient FRP and wooden cooling towers, and material conveying systems.</p>
+    </div>
+
+    <div class="ct-types">
+      <div class="ct-type reveal">
+        <svg viewBox="0 0 60 60" width="52" height="52"><path fill="none" stroke="var(--yellow)" stroke-width="2.5" d="M18 50c-4-17-4-25 5-30 4-2.4 10-2.4 14 0 9 5 9 13 5 30z"/></svg>
+        <h4>Natural Draft<br>Atmospheric Spray</h4>
+      </div>
+      <div class="ct-type reveal">
+        <svg viewBox="0 0 60 60" width="52" height="52"><rect x="16" y="16" width="28" height="30" fill="none" stroke="var(--yellow)" stroke-width="2.5"/><path d="M16 24h28M16 32h28M16 40h28" stroke="var(--yellow)" stroke-width="1.5"/></svg>
+        <h4>Induced Draft<br>Cross Flow</h4>
+      </div>
+      <div class="ct-type reveal">
+        <svg viewBox="0 0 60 60" width="52" height="52"><rect x="18" y="14" width="24" height="34" fill="none" stroke="var(--yellow)" stroke-width="2.5"/><path d="M30 14v34M18 22h24" stroke="var(--yellow)" stroke-width="1.5"/></svg>
+        <h4>Counter Flow</h4>
+      </div>
+    </div>
+
+    <p class="ct-note reveal">Available in various materials of construction including treated timber, FRP and RCC.</p>
+
+    <div class="ct-services reveal">
+      <h3>Cooling Tower Services</h3>
+      <ul class="chip-list">
+        <li>Cooling Tower Spares</li>
+        <li>Maintenance</li>
+        <li>Renovation</li>
+        <li>Modification</li>
+        <li>Exhaust System</li>
+        <li>Air Cooling System</li>
+        <li>Humidifier</li>
+        <li>Air Handling Units</li>
+      </ul>
+      <button class="btn btn-primary" data-scroll="#contact">Request Cooling Tower Service</button>
+    </div>
+  </div>
+
+  <!-- Conversion signature diagram -->
+  <div class="ct-conversion reveal">
+    <div class="container ct-conversion-inner">
+      <h3 class="ct-conversion-title">Cooling Tower Conversion</h3>
+      <div class="conversion-flow">
+        <div class="conversion-item">
+          <svg viewBox="0 0 120 140" width="100" height="120">
+            <rect x="30" y="20" width="60" height="90" fill="#3a2c1c" stroke="#6b4a26" stroke-width="2"/>
+            <g stroke="#6b4a26" stroke-width="1.5"><line x1="30" y1="35" x2="90" y2="35"/><line x1="30" y1="50" x2="90" y2="50"/><line x1="30" y1="65" x2="90" y2="65"/><line x1="30" y1="80" x2="90" y2="80"/><line x1="30" y1="95" x2="90" y2="95"/></g>
+            <rect x="20" y="110" width="80" height="10" fill="#241a10"/>
+          </svg>
+          <span>Old Timber<br>Cooling Tower</span>
+        </div>
+        <div class="conversion-arrow" aria-hidden="true">
+          <svg viewBox="0 0 80 24" width="70" height="20"><path d="M0 12h68M56 2l12 10-12 10" fill="none" stroke="var(--yellow)" stroke-width="3"/></svg>
+          <span>Conversion</span>
+        </div>
+        <div class="conversion-item">
+          <svg viewBox="0 0 120 140" width="100" height="120">
+            <rect x="26" y="18" width="68" height="94" fill="#0f2f45" stroke="#1c9fd8" stroke-width="2"/>
+            <g stroke="#1c9fd8" stroke-width="1.5"><line x1="26" y1="34" x2="94" y2="34"/><line x1="26" y1="50" x2="94" y2="50"/><line x1="26" y1="66" x2="94" y2="66"/><line x1="26" y1="82" x2="94" y2="82"/><line x1="26" y1="98" x2="94" y2="98"/></g>
+            <rect x="16" y="112" width="88" height="10" fill="#092637"/>
+          </svg>
+          <span>New Pultruded FRP<br>Cooling Tower</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ASSOCIATED COMPANIES ============ -->
+<section class="section brands" id="brands">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-eyebrow">Our Associates</p>
+      <h2 class="section-title">Proudly Associated With</h2>
+    </div>
+    <div class="brand-grid">
+      <div class="brand-card reveal">
+        <h4>PIX Transmission Ltd</h4>
+        <p>V-Belts, Couplings and Pulleys</p>
+      </div>
+      <div class="brand-card reveal">
+        <h4>NBC Bearing</h4>
+        <p>Prestigious bearing manufacturer</p>
+      </div>
+      <div class="brand-card reveal">
+        <h4>Kepro</h4>
+        <p>Lifting Equipment &amp; Solutions</p>
+      </div>
+      <div class="brand-card reveal">
+        <h4>M.N. Industries</h4>
+        <p>Mechanical Shaft Seals</p>
+      </div>
+      <div class="brand-card reveal">
+        <h4>Canara Engineers Pvt. Ltd.</h4>
+        <p>Cooling Towers &amp; Material Conveying Solutions</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES ============ -->
+<section class="section industries" id="industries">
+  <div class="container">
+    <div class="section-head section-head--light reveal">
+      <p class="section-eyebrow section-eyebrow--yellow">Where We Work</p>
+      <h2 class="section-title section-title--light">Industries We Serve</h2>
+    </div>
+    <div class="industry-grid">
+      <div class="industry-card reveal"><div class="industry-icon"><svg viewBox="0 0 24 24" width="30" height="30"><path fill="var(--yellow)" d="M4 20V9l4-3v3l4-3v3l4-3v3l4-3v14z"/></svg></div><h4>Power</h4></div>
+      <div class="industry-card reveal"><div class="industry-icon"><svg viewBox="0 0 24 24" width="30" height="30"><path fill="var(--yellow)" d="M3 21V10l4-3 4 3v11H8v-6H6v6zm10 0V13l3-2 3 2v8h-3v-4h-2v4z"/></svg></div><h4>Cement</h4></div>
+      <div class="industry-card reveal"><div class="industry-icon"><svg viewBox="0 0 24 24" width="30" height="30"><path fill="var(--yellow)" d="M2 20l6-14 3 7 2-4 3 6 4-9 2 14z"/></svg></div><h4>Mining</h4></div>
+      <div class="industry-card reveal"><div class="industry-icon"><svg viewBox="0 0 24 24" width="30" height="30"><path fill="var(--yellow)" d="M4 4h4v16H4zM10 10h4v10h-4zM16 6h4v14h-4z"/></svg></div><h4>Steel</h4></div>
+      <div class="industry-card reveal"><div class="industry-icon"><svg viewBox="0 0 24 24" width="30" height="30"><path fill="var(--yellow)" d="M4 3h16v13a3 3 0 01-3 3H7a3 3 0 01-3-3zm3 18l2-2h6l2 2zM7 7h10v6H7z"/></svg></div><h4>Railway</h4></div>
+      <div class="industry-card reveal"><div class="industry-icon"><svg viewBox="0 0 24 24" width="30" height="30"><path fill="var(--yellow)" d="M2 12l9-2 3-8 2 1-2 7 8 2-8 2 2 7-2 1-3-8z"/></svg></div><h4>Defence</h4></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============ PRODUCTS ============ -->
+<section class="section products" id="products">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-eyebrow">Catalog</p>
+      <h2 class="section-title">Products</h2>
+    </div>
+
+    <div class="product-block reveal">
+      <h3>V-Belts, Couplings &amp; Pulleys <span class="src">— PIX Transmission Ltd</span></h3>
+      <p>PIX Transmission Ltd is a leading manufacturer of rubber belts and related mechanical power transmission products in India, with overseas subsidiary operations and channel partners worldwide.</p>
+      <ul class="chip-list">
+        <li>V-Belts</li><li>Couplings</li><li>Pulleys</li>
+      </ul>
+    </div>
+
+    <div class="product-block reveal">
+      <h3>Lifting Equipment <span class="src">— Kepro</span></h3>
+      <p>A wide range of lifting equipment designed for conducting different kinds of industrial work efficiently.</p>
+      <ul class="chip-list chip-list--wrap">
+        <li>Chain Pulley Block</li><li>Electric Hoist</li><li>Lifting Clamps</li><li>Polyester Slings</li>
+        <li>Shackles</li><li>Sheave Pulley Block</li><li>Lever Hoist</li><li>Pulling &amp; Lifting Machine</li>
+        <li>Travelling Trolley</li><li>Lifting Chain</li><li>Electric Winch</li><li>Turn Buckle</li><li>Slings</li>
+      </ul>
+    </div>
+
+    <div class="product-block reveal">
+      <h3>Mechanical Seals &amp; Components <span class="src">— M.N. Industries</span></h3>
+      <p>M.N. Industries, an ISO 9001-2008 certified manufacturer of mechanical shaft seals for pumps used in agriculture, diesel engines, food and other engineering industries.</p>
+      <div class="two-col">
+        <div>
+          <h5>Components</h5>
+          <ul class="chip-list chip-list--wrap">
+            <li>Viton Seals</li><li>Ceramic Shafts</li><li>Stainless Steel Shafts</li><li>Ceramic Sleeves</li>
+            <li>Stainless Steel Sleeves</li><li>Gland Plates</li><li>Elastomer O Rings</li><li>PTFE Packings</li>
+            <li>Springs</li><li>Retainers</li><li>Thrust Rings</li><li>Lock Rings</li>
+          </ul>
+        </div>
+        <div>
+          <h5>Seal Faces</h5>
+          <ul class="chip-list chip-list--wrap">
+            <li>Ceramic</li><li>Silicon Carbide</li><li>Carbon</li><li>Tungsten Carbide</li><li>PTFE</li><li>GFT</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIAL VALVES ============ -->
+<section class="section valves" id="valves">
+  <div class="container">
+    <div class="section-head section-head--light reveal">
+      <p class="section-eyebrow section-eyebrow--yellow">Precision Flow Control</p>
+      <h2 class="section-title section-title--light">Industrial Valves</h2>
+    </div>
+    <div class="valve-grid">
+      <div class="valve-card reveal">
+        <h4>Gate, Globe, Check Valves</h4>
+        <p class="valve-cert">IBR / NIBR</p>
+        <p class="valve-std">Complies to API-600, BS-1873, BS-1868</p>
+      </div>
+      <div class="valve-card reveal">
+        <h4>Forged Steel Valves</h4>
+        <p class="valve-cert">IBR / NIBR</p>
+        <p class="valve-std">Complies to API-602, BS EN ISO 15761</p>
+      </div>
+      <div class="valve-card reveal">
+        <h4>Bellow Seal Valves</h4>
+        <p class="valve-cert">IBR / NIBR</p>
+        <p class="valve-std">Complies to MSS-SP,117 / BS-1873</p>
+      </div>
+      <div class="valve-card reveal">
+        <h4>Ball Valves</h4>
+        <p class="valve-std">Complies to BS EN ISO 17292</p>
+      </div>
+      <div class="valve-card reveal">
+        <h4>Knife Gate Valves</h4>
+        <p class="valve-std">Complies to MSS-SP81</p>
+      </div>
+      <div class="valve-card reveal">
+        <h4>Butterfly Valves</h4>
+        <p class="valve-std">Complies to BS EN-593 / IS-13095 / API609</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MATERIAL HANDLING ============ -->
+<section class="section material-handling" id="material-handling">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-eyebrow">Bulk &amp; Ash Handling</p>
+      <h2 class="section-title">Material Handling</h2>
+    </div>
+    <div class="mh-grid">
+      <div class="mh-card reveal">
+        <h4>Ash Handling Spares</h4>
+        <p>Spares for ash handling systems including ducting flanges, screw augers and rotary components.</p>
+      </div>
+      <div class="mh-card reveal">
+        <h4>Material Conveying</h4>
+        <p>Conveying system components and accessories for feeding and extraction.</p>
+      </div>
+      <div class="mh-card reveal">
+        <h4>Bulk Material Handling</h4>
+        <p>Rollers, idlers and conveyor spares for bulk material handling lines.</p>
+      </div>
+      <div class="mh-card mh-card--wide reveal">
+        <h4>Bucket Elevators — Chain / Belt</h4>
+        <p>Bucket elevator assemblies, elevator chains, and elevator buckets for vertical material transport.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HEAT EXCHANGER ============ -->
+<section class="section heat-exchanger" id="heat-exchanger">
+  <div class="container two-col-section">
+    <div class="reveal">
+      <p class="section-eyebrow">Thermal Systems</p>
+      <h2 class="section-title">Heat Exchanger Solutions</h2>
+      <p class="lead">We work across multiple types of heat exchangers and provide reconditioning services to restore damaged units to service.</p>
+      <div class="he-cols">
+        <div>
+          <h5>Type of Heat Exchangers</h5>
+          <p>Selection and supply covering a range of heat exchanger types used across process plants.</p>
+        </div>
+        <div>
+          <h5>Reconditioning of Heat Exchangers</h5>
+          <p>Damaged shell &amp; tube heat exchangers and vapor condensers are re-tubed and reconditioned, including SS lining of tube sheets.</p>
+        </div>
+      </div>
+      <button class="btn btn-primary" data-scroll="#contact">Request Heat Exchanger Service</button>
+    </div>
+    <div class="reveal he-graphic" aria-hidden="true">
+      <svg viewBox="0 0 260 200" width="100%">
+        <rect x="20" y="60" width="220" height="80" rx="8" fill="none" stroke="var(--yellow)" stroke-width="2.5"/>
+        <line x1="45" y1="60" x2="45" y2="140" stroke="var(--yellow)" stroke-width="1.5"/>
+        <line x1="215" y1="60" x2="215" y2="140" stroke="var(--yellow)" stroke-width="1.5"/>
+        <g stroke="#4a5560" stroke-width="1.5">
+          <line x1="60" y1="75" x2="200" y2="75"/><line x1="60" y1="88" x2="200" y2="88"/>
+          <line x1="60" y1="101" x2="200" y2="101"/><line x1="60" y1="114" x2="200" y2="114"/><line x1="60" y1="127" x2="200" y2="127"/>
+        </g>
+        <line x1="0" y1="100" x2="20" y2="100" stroke="var(--yellow)" stroke-width="2.5"/>
+        <line x1="240" y1="100" x2="260" y2="100" stroke="var(--yellow)" stroke-width="2.5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESP & BAG HOUSE ============ -->
+<section class="section esp" id="esp-baghouse">
+  <div class="container">
+    <div class="section-head section-head--light reveal">
+      <p class="section-eyebrow section-eyebrow--yellow">Emission Control</p>
+      <h2 class="section-title section-title--light">ESP &amp; Bag House Solutions</h2>
+      <p class="lead lead--light">ESP &amp; Bag House solutions for electrostatic precipitator and bag-filter based air pollution control systems.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FABRICATION & WORKSHOP ============ -->
+<section class="section workshop" id="workshop">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-eyebrow">In-House Capability</p>
+      <h2 class="section-title">Engineering &amp; Workshop Capabilities</h2>
+    </div>
+    <div class="workshop-grid">
+      <div class="workshop-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="32" height="32"><path fill="var(--yellow)" d="M2 2l3 3-6 6-3-3zm4.5 4.5L20 20l2-2L8.5 4.5z"/></svg></div>
+        <h4>Drawing Based Fabrication</h4>
+        <p>Fabrication executed strictly to customer drawings and specification.</p>
+      </div>
+      <div class="workshop-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="32" height="32"><circle cx="12" cy="12" r="9" fill="none" stroke="var(--yellow)" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="var(--yellow)"/></svg></div>
+        <h4>Machining Jobs</h4>
+        <p>Precision machining of components and spares.</p>
+      </div>
+      <div class="workshop-card reveal">
+        <div class="sol-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="32" height="32"><path fill="var(--yellow)" d="M4 4h16v16H4z" stroke="var(--yellow)" fill="none" stroke-width="2"/><path d="M4 12h16" stroke="var(--yellow)" stroke-width="2"/></svg></div>
+        <h4>Wear Plate &amp; Welding</h4>
+        <p>Composite wear plates, hardfacing consumables and hardfacing services for wear protection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TERRITORY ============ -->
+<section class="section territory" id="territory">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="section-eyebrow">Service Network</p>
+      <h2 class="section-title">Territory Covered</h2>
+    </div>
+    <div class="territory-grid">
+      <div class="territory-card reveal">
+        <h4>Madhya Pradesh</h4>
+        <ul class="loc-list">
+          <li>Satna</li><li>Rewa</li><li>Sidhi</li><li>Singrauli</li><li>Katni</li><li>Jabalpur</li>
+          <li>Panna</li><li>Vaidhan</li><li>Nigrie</li><li>Shahdol</li><li>Raipur</li>
+        </ul>
+      </div>
+      <div class="territory-card reveal">
+        <h4>Uttar Pradesh</h4>
+        <ul class="loc-list">
+          <li>Shahjahaanpur</li><li>Sonebhadra</li><li>Rai Bareli</li><li>Dala</li><li>Chunar</li>
+        </ul>
+      </div>
+      <div class="territory-card reveal">
+        <h4>Jharkhand</h4>
+        <ul class="loc-list">
+          <li>Muri</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA STRIP ============ -->
+<section class="cta-strip reveal" id="resources">
+  <div class="container cta-strip-inner">
+    <div>
+      <h3>Have an industrial requirement?</h3>
+      <p>Tell us your equipment, component or problem — our engineers will help you with the right solution.</p>
+    </div>
+    <div class="cta-strip-actions">
+      <button class="btn btn-primary" data-scroll="#contact">Request a Quote</button>
+      <a class="btn btn-outline" href="tel:+917440408448">Talk to an Engineer</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="container contact-grid">
+    <div class="reveal">
+      <p class="section-eyebrow section-eyebrow--yellow">Get In Touch</p>
+      <h2 class="section-title section-title--light">Contact Us</h2>
+      <address class="contact-details">
+        <p><strong>Yantra Technoventure</strong></p>
+        <p>Shop No-3, Pankaj Avenue,<br>15/289, Transport Nagar,<br>Satna – 485001 (MP)</p>
+        <p><a href="mailto:yantra.satna@gmail.com">yantra.satna@gmail.com</a></p>
+        <p><a href="tel:+917440408448">+91-7440408448</a></p>
+      </address>
+      <div class="contact-quick-btns">
+        <a class="btn btn-outline" href="tel:+917440408448">Call Us</a>
+        <a class="btn btn-outline" href="mailto:yantra.satna@gmail.com">Email Us</a>
+      </div>
+    </div>
+
+    <form class="quote-form reveal" id="quoteForm" novalidate>
+      <h3>Request a Quote</h3>
+      <div class="form-row">
+        <label for="fName">Name *</label>
+        <input type="text" id="fName" name="name" required>
+        <span class="err" data-err-for="fName"></span>
+      </div>
+      <div class="form-row">
+        <label for="fCompany">Company</label>
+        <input type="text" id="fCompany" name="company">
+      </div>
+      <div class="form-row">
+        <label for="fEmail">Email *</label>
+        <input type="email" id="fEmail" name="email" required>
+        <span class="err" data-err-for="fEmail"></span>
+      </div>
+      <div class="form-row">
+        <label for="fPhone">Phone *</label>
+        <input type="tel" id="fPhone" name="phone" required>
+        <span class="err" data-err-for="fPhone"></span>
+      </div>
+      <div class="form-row">
+        <label for="fIndustry">Industry</label>
+        <select id="fIndustry" name="industry">
+          <option value="">Select industry</option>
+          <option>Power</option><option>Cement</option><option>Mining</option>
+          <option>Steel</option><option>Railway</option><option>Defence</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="fRequirement">Requirement</label>
+        <input type="text" id="fRequirement" name="requirement" placeholder="e.g. Cooling Tower Spares">
+      </div>
+      <div class="form-row">
+        <label for="fMessage">Message *</label>
+        <textarea id="fMessage" name="message" rows="4" required></textarea>
+        <span class="err" data-err-for="fMessage"></span>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Submit Enquiry</button>
+      <p class="form-success" id="formSuccess" hidden>Thanks — your enquiry has been prepared. Your email app will open to send it to yantra.satna@gmail.com.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col footer-brand">
+      <span class="brand-text">
+        <strong>YANTRA</strong><em>TECHNOVENTURE</em>
+      </span>
+      <p>Industrial spares &amp; maintenance solutions for Power, Cement, Mining, Steel, Railway &amp; Defence industries.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Products</h5>
+      <ul>
+        <li><a href="#products">Plant Equipment Spares</a></li>
+        <li><a href="#products">Mechanical Seals</a></li>
+        <li><a href="#material-handling">Ash Handling Spares</a></li>
+        <li><a href="#products">Material Conveying Solutions</a></li>
+        <li><a href="#valves">Industrial Valves</a></li>
+        <li><a href="#cooling-tower">Cooling Tower Spares &amp; Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Industries</h5>
+      <ul>
+        <li><a href="#industries">Power</a></li>
+        <li><a href="#industries">Cement</a></li>
+        <li><a href="#industries">Mining</a></li>
+        <li><a href="#industries">Steel</a></li>
+        <li><a href="#industries">Railway</a></li>
+        <li><a href="#industries">Defence</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#workshop">Fabrication &amp; Machining</a></li>
+        <li><a href="#heat-exchanger">Heat Exchanger Reconditioning</a></li>
+        <li><a href="#cooling-tower">Cooling Tower Services</a></li>
+        <li><a href="#esp-baghouse">ESP &amp; Bag House Solutions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#brands">Our Associates</a></li>
+        <li><a href="#territory">Territory Covered</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <p>Shop No-3, Pankaj Avenue,<br>15/289, Transport Nagar,<br>Satna – 485001 (MP)</p>
+      <p><a href="mailto:yantra.satna@gmail.com">yantra.satna@gmail.com</a></p>
+      <p><a href="tel:+917440408448">+91-7440408448</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Yantra Technoventure. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- ============ MODALS ============ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- hidden modal content templates -->
+<template id="modal-plant-spares">
+  <h3>Spares of Plant Equipments</h3>
+  <p>General plant equipment spares supplied and serviced by Yantra Technoventure to keep client plants running reliably.</p>
+</template>
+<template id="modal-seals">
+  <h3>Mechanical Seals</h3>
+  <p>Supplied through our associate M.N. Industries — an ISO 9001-2008 certified manufacturer of mechanical shaft seals for pumps, serving agriculture, diesel engines, pumps and food industries.</p>
+  <p><strong>Components:</strong> Viton seals, ceramic &amp; stainless steel shafts and sleeves, gland plates, elastomer O rings, PTFE packings, springs, retainers, thrust and lock rings.</p>
+  <p><strong>Seal faces:</strong> Ceramic, silicon carbide, carbon, tungsten carbide, PTFE, GFT.</p>
+</template>
+<template id="modal-ash">
+  <h3>Spares for Ash Handling</h3>
+  <p>Ash handling system spares including ducting components, augers, liners and fabricated parts.</p>
+</template>
+<template id="modal-conveying">
+  <h3>Material Conveying Solutions</h3>
+  <p>Material conveying system components including bucket elevator chains, belts and buckets, plus accessories for feeding and extraction.</p>
+</template>
+<template id="modal-casting">
+  <h3>Hi-Chrome &amp; Mn-Alloy Casting</h3>
+  <p>High-chrome and manganese-alloy cast components for wear-intensive plant applications.</p>
+</template>
+<template id="modal-bulk">
+  <h3>Spares for Bulk Material Handling</h3>
+  <p>Rollers, idlers, pulleys and related spares supporting bulk material handling conveyor systems.</p>
+</template>
+<template id="modal-bearing">
+  <h3>Bearing — NBC Bearing</h3>
+  <p>Founded in 1946, NBC is India's first bearing manufacturer. 75 years since its beginning, NBC remains India's leading bearing manufacturer and exporter, and is the world's only bearing manufacturer to receive the Deming Grand Prize for total quality management.</p>
+</template>
+<template id="modal-pumps">
+  <h3>Water &amp; Fire Pumps</h3>
+  <p>Industrial water and fire pump systems supplied for process and safety applications across our client industries.</p>
+</template>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ============ MOBILE NAV ============ */
+  var hamburger = document.getElementById("hamburgerBtn");
+  var mainNav = document.getElementById("mainNav");
+
+  function closeNav() {
+    mainNav.classList.remove("open");
+    hamburger.classList.remove("active");
+    hamburger.setAttribute("aria-expanded", "false");
+  }
+
+  if (hamburger && mainNav) {
+    hamburger.addEventListener("click", function () {
+      var isOpen = mainNav.classList.toggle("open");
+      hamburger.classList.toggle("active", isOpen);
+      hamburger.setAttribute("aria-expanded", String(isOpen));
+    });
+    mainNav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", closeNav);
+    });
+  }
+
+  /* ============ SMOOTH SCROLL (data-scroll + hash links) ============ */
+  function scrollToTarget(hash) {
+    var target = document.querySelector(hash);
+    if (target) {
+      var headerH = document.getElementById("siteHeader").offsetHeight;
+      var y = target.getBoundingClientRect().top + window.pageYOffset - headerH + 1;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  }
+
+  document.querySelectorAll("[data-scroll]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      scrollToTarget(el.getAttribute("data-scroll"));
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var hash = link.getAttribute("href");
+      if (hash.length > 1 && document.querySelector(hash)) {
+        e.preventDefault();
+        scrollToTarget(hash);
+        closeNav();
+      }
+    });
+  });
+
+  /* ============ SCROLL REVEAL ============ */
+  var revealEls = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    revealEls.forEach(function (el) {
+      io.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) {
+      el.classList.add("in-view");
+    });
+  }
+
+  /* ============ COUNTER ANIMATION ============ */
+  var counters = document.querySelectorAll("[data-counter]");
+  function animateCounter(el) {
+    var target = parseInt(el.getAttribute("data-counter"), 10) || 0;
+    var duration = 1200;
+    var startTime = null;
+
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var value = Math.floor(progress * target);
+      el.textContent = value;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  if ("IntersectionObserver" in window && counters.length) {
+    var counterIO = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterIO.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    counters.forEach(function (el) {
+      counterIO.observe(el);
+    });
+  } else {
+    counters.forEach(function (el) {
+      el.textContent = el.getAttribute("data-counter");
+    });
+  }
+
+  /* ============ HEADER SHADOW ON SCROLL ============ */
+  var header = document.getElementById("siteHeader");
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 12) {
+      header.style.boxShadow = "0 4px 18px rgba(0,0,0,.35)";
+    } else {
+      header.style.boxShadow = "none";
+    }
+  });
+
+  /* ============ MODALS ============ */
+  var modalOverlay = document.getElementById("modalOverlay");
+  var modalBody = document.getElementById("modalBody");
+  var modalClose = document.getElementById("modalClose");
+
+  function openModal(templateId) {
+    var tpl = document.getElementById(templateId);
+    if (!tpl) return;
+    modalBody.innerHTML = "";
+    modalBody.appendChild(tpl.content.cloneNode(true));
+    modalOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modalOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll("[data-modal]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      openModal(btn.getAttribute("data-modal"));
+    });
+  });
+
+  if (modalClose) modalClose.addEventListener("click", closeModal);
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", function (e) {
+      if (e.target === modalOverlay) closeModal();
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeModal();
+  });
+
+  /* ============ QUOTE FORM VALIDATION ============ */
+  var form = document.getElementById("quoteForm");
+  var successMsg = document.getElementById("formSuccess");
+
+  function setError(fieldId, message) {
+    var row = document.getElementById(fieldId).closest(".form-row");
+    var errEl = document.querySelector('[data-err-for="' + fieldId + '"]');
+    if (message) {
+      row.classList.add("invalid");
+      if (errEl) errEl.textContent = message;
+    } else {
+      row.classList.remove("invalid");
+      if (errEl) errEl.textContent = "";
+    }
+  }
+
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var valid = true;
+
+      var name = document.getElementById("fName").value.trim();
+      if (!name) {
+        setError("fName", "Please enter your name.");
+        valid = false;
+      } else {
+        setError("fName", "");
+      }
+
+      var email = document.getElementById("fEmail").value.trim();
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailPattern.test(email)) {
+        setError("fEmail", "Please enter a valid email address.");
+        valid = false;
+      } else {
+        setError("fEmail", "");
+      }
+
+      var phone = document.getElementById("fPhone").value.trim();
+      var phonePattern = /^[0-9+\-\s()]{7,15}$/;
+      if (!phone || !phonePattern.test(phone)) {
+        setError("fPhone", "Please enter a valid phone number.");
+        valid = false;
+      } else {
+        setError("fPhone", "");
+      }
+
+      var message = document.getElementById("fMessage").value.trim();
+      if (!message) {
+        setError("fMessage", "Please tell us your requirement.");
+        valid = false;
+      } else {
+        setError("fMessage", "");
+      }
+
+      if (!valid) {
+        successMsg.hidden = true;
+        return;
+      }
+
+      var company = document.getElementById("fCompany").value.trim();
+      var industry = document.getElementById("fIndustry").value;
+      var requirement = document.getElementById("fRequirement").value.trim();
+
+      var subject = "Enquiry from " + name + (company ? " (" + company + ")" : "");
+      var bodyLines = [
+        "Name: " + name,
+        "Company: " + (company || "-"),
+        "Email: " + email,
+        "Phone: " + phone,
+        "Industry: " + (industry || "-"),
+        "Requirement: " + (requirement || "-"),
+        "",
+        "Message:",
+        message
+      ];
+      var mailto =
+        "mailto:yantra.satna@gmail.com?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(bodyLines.join("\n"));
+
+      window.location.href = mailto;
+      successMsg.hidden = false;
+      form.reset();
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
